@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-centos" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/centos/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/centos/">centos</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vnc-Server"><a href="#vnc-Server" class="headerlink" title="vnc Server"></a>vnc Server</h3><ul>
+<li><p>sudo yum install tigervnc-server</p>
+</li>
+<li><p>sudo cp  /lib/systemd/system/vncserver@.service   /etc/systemd/system/vncserver@.service</p>
+</li>
+<li><p>sudo vim  /etc/systemd/system/vncserver@.service</p>
+</li>
+<li><p>sudo systemctl daemon-reload</p>
+</li>
+<li><p>sudo systemctl enable vncserver@:1.service</p>
+</li>
+<li><p>sudo vncpasswd ~/.vnc/paawd</p>
+</li>
+<li><p>sudo firewall-cmd  –state</p>
+</li>
+<li><p>sudo firewall-cmd  –zone=public –add-port=5901/tcp  –permanent</p>
+</li>
+<li><p>sudo firewall-cmd  –zone=public –add-port=6001/tcp  –permanent</p>
+</li>
+<li><p>sudo firewall-cmd –reload</p>
+</li>
+<li><p>sudo firewall-cmd –list-all</p>
+</li>
+<li></li>
+</ul>
+<h3 id="Centos-关闭selinux-和防火墙"><a href="#Centos-关闭selinux-和防火墙" class="headerlink" title="Centos 关闭selinux 和防火墙"></a>Centos 关闭selinux 和防火墙</h3><ul>
+<li><p>vim /etc/selinux/config</p>
+</li>
+<li><p>查看防火墙状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state1</span><br></pre></td></tr></table></figure>
+
+<p>停止firewall</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service1</span><br></pre></td></tr></table></figure>
+
+<p>禁止firewall开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/centos/" data-id="ckaqhwj0i000041hifvpz2tqs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-github-reinitialize" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/github-reinitialize/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/github-reinitialize/">github-reinitialize</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="删除github上的commit历史记录"><a href="#删除github上的commit历史记录" class="headerlink" title="删除github上的commit历史记录"></a>删除github上的commit历史记录</h1><ol>
+<li>创建新的分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout  --orphan  new</span><br><span class="line">git add -A</span><br><span class="line">git commit -am "Re-init"</span><br></pre></td></tr></table></figure></li>
+<li>删除原master分支, 重命名master, 并提交<pre><code class="shell">git branch  -D master
+git branch -m master
+git push origin master  -f
+</code></pre>
+</li>
+</ol>
+<p>现在你再去GitHub上去看提交分支的记录，会发现只有一次提交了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/github-reinitialize/" data-id="ckaqhwj0r000141hi977hco9x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/mongodb/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/mongodb/">mongodb</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><ul>
+<li><p>查看所有数据库 </p>
+<blockquote>
+<p>show dbs</p>
+</blockquote>
+</li>
+<li><p>创建或切换数据库</p>
+<blockquote>
+<p>use DB-Name</p>
+</blockquote>
+</li>
+<li><p>删除当前数据库</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>集合(表)</p>
+<ul>
+<li><p>创建</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(name, options)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> use <span class="built_in">test</span></span></span><br><span class="line">switched to db test</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> db.createCollection(<span class="string">"runoob"</span>)</span></span><br><span class="line">&#123; "ok" : 1 &#125;</span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>查询</p>
+<blockquote>
+<p>使用 <strong>show collections</strong> 或 <strong>show tables</strong> 命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; show collections</span><br><span class="line">runoob</span><br><span class="line">system.indexes</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.mycol2.insert(&#123;&quot;name&quot; : &quot;菜鸟教程&quot;&#125;)</span><br><span class="line">&gt; show collections</span><br><span class="line">mycol2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>删除集合</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> use runoob</span></span><br><span class="line">switched to db runoob</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> db.createCollection(<span class="string">"runoob"</span>)     <span class="comment"># 先创建集合，类似数据库中的表</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> show tables</span></span><br><span class="line">runoob</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> db.runoob.drop()</span></span><br><span class="line">true</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> show tables</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/mongodb/" data-id="ckaqhwj0v000341higdf5d3pl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ser2net" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/ser2net/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/ser2net/">ser2net</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ser2net-命令"><a href="#ser2net-命令" class="headerlink" title="ser2net 命令"></a>ser2net 命令</h3><ul>
+<li><p>参考文档  <a href="https://www.twblogs.net/a/5c0cf2e4bd9eee5e40ba9510" target="_blank" rel="noopener">https://www.twblogs.net/a/5c0cf2e4bd9eee5e40ba9510</a></p>
+<ol>
+<li><p>修改配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim   &#x2F;etc&#x2F;ser2net.conf</span><br><span class="line"># telnet </span><br><span class="line">#  &lt;TCP port&gt;:&lt;state&gt;:&lt;timeout&gt;:&lt;device&gt;:&lt;options&gt;</span><br><span class="line">20053:telnet:14400:&#x2F;dev&#x2F;ttyUSB5:115200 8DATABITS NONE 1STOPBIT LOCAL banner</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启 ser2net 服务</p>
+<p>sudo service ser2net restart</p>
+</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/ser2net/" data-id="ckaqhwj0w000441hihzcj15t2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-shell" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/shell/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/shell/">shell</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><ul>
+<li><code>ctrl+b</code>: 前移一个字符(backward)</li>
+<li><code>ctrl+f</code>: 后移一个字符(forward)</li>
+<li><code>alt+b</code>: 前移一个单词</li>
+<li><code>alt+f</code>: 后移一个单词</li>
+<li><code>ctrl+a</code>: 移到行首（a是首字母）</li>
+<li><code>ctrl+e</code>: 移到行尾（end）</li>
+<li><code>ctrl+xx</code>: 行首到当前光标替换</li>
+</ul>
+<h2 id="编辑命令"><a href="#编辑命令" class="headerlink" title="编辑命令"></a>编辑命令</h2><ul>
+<li><code>alt+.</code>: 粘帖最后一次命令最后的参数（通常用于<code>mkdir long-long-dir</code>后, <code>cd</code>配合着<code>alt+.</code>）</li>
+<li><code>alt+d</code>: 删除当前光标到临近右边单词开始(delete)</li>
+<li><code>ctrl+u</code>: 删除光标左边所有</li>
+<li><code>ctrl+h</code>: 删除光标前一个字符（相当于backspace）</li>
+<li><code>ctrl+d</code>: 删除光标后一个字符（相当于delete）</li>
+<li><code>ctrl+w</code>: 删除当前光标到临近左边单词结束(word)</li>
+<li><code>ctrl+k</code>: 删除光标右边所有</li>
+<li><code>ctrl+l</code>: 清屏</li>
+<li><code>ctrl+shift+c</code>: 复制（相当于鼠标左键拖拽）</li>
+<li><code>ctrl+shift+v</code>: 粘贴（相当于鼠标中键）</li>
+</ul>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ul>
+<li><code>ctrl+n</code>: 下一条命令</li>
+<li><code>ctrl+p</code>: 上一条命令</li>
+<li><code>alt+n</code>: 下一条命令（例如输入<code>ls</code>, 然后按’alt+n’, 就会找到历史记录下的<code>ls</code>命令）</li>
+<li><code>alt+p</code>: 上一条命令（跟<code>alt+n</code>相似）</li>
+<li><code>shift+PageUp</code>: 向上翻页</li>
+<li><code>shift+PageDown</code>: 向下翻页</li>
+<li><code>ctrl+r</code>: 进入历史查找命令记录， 输入关键字。 多次按返回下一个匹配项</li>
+</ul>
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><h3 id="移动光标-1"><a href="#移动光标-1" class="headerlink" title="移动光标"></a>移动光标</h3><ul>
+<li><code>b</code>: 向前移动一个单词</li>
+<li><code>w</code>: 向后移动一个单词</li>
+</ul>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul>
+<li><code>dw</code>: 从当前光标开始删除到下一个单词头</li>
+<li><code>de</code>: 从当前光标开始删除到单词尾</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/shell/" data-id="ckaqhwj0x000541hi1chaasze" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-收藏" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/%E6%94%B6%E8%97%8F/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/%E6%94%B6%E8%97%8F/">收藏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="收藏"><a href="#收藏" class="headerlink" title="收藏"></a>收藏</h2><h3 id="1-markdown"><a href="#1-markdown" class="headerlink" title="1. markdown"></a>1. markdown</h3><ul>
+<li><p>图床工具</p>
+<ul>
+<li><p><a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo/releases</a></p>
+</li>
+<li><p>使用教程 <a href="https://www.jianshu.com/p/9d91355e8418" target="_blank" rel="noopener">https://www.jianshu.com/p/9d91355e8418</a></p>
+</li>
+<li><p>GitHub token 权限设置</p>
+<p><img src="https://raw.githubusercontent.com/b59118/picBed/master/img/20190704182508.png" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-url"><a href="#2-url" class="headerlink" title="2.  url"></a>2.  url</h3><ul>
+<li>编程练习 <a href="https://leetcode-cn.com/explore/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/</a></li>
+<li>docker 入门文档 <a href="https://legacy.gitbook.com/@yeasy" target="_blank" rel="noopener">https://legacy.gitbook.com/@yeasy</a></li>
+</ul>
+<h3 id="3-Docker"><a href="#3-Docker" class="headerlink" title="3. Docker"></a>3. Docker</h3><ol>
+<li><p>Docker自带的如下ARG参数，可以在其他指令中直接引用:</p>
+<ul>
+<li>HTTP_PROXY</li>
+<li>http_proxy</li>
+<li>HTTPS_PROXY</li>
+<li>https_proxy</li>
+<li>FTP_PROXY</li>
+<li>ftp_proxy</li>
+<li>NO_PROXY</li>
+<li>no_proxy</li>
+</ul>
+</li>
+<li><p>vim 在插入模式粘贴代码缩进办法</p>
+<p>:set paste 粘贴完成是 set nopaste</p>
+</li>
+<li><p>shell 自动补全忽略大小写</p>
+<blockquote>
+<p>add file  ~/.inputrc</p>
+<p>set completion-ignore-case on</p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/%E6%94%B6%E8%97%8F/" data-id="ckaqhwj0y000641hifur4c763" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-docker-compose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/docker-compose/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/docker-compose/">docker-compose</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>什么是Docker-Compose</li>
+</ol>
+<p>Compose项目来源于之前的fig项目，使用python语言编写,与docker/swarm配合度很高。</p>
+<p>Compose 是 Docker 容器进行编排的工具，定义和运行多容器的应用，可以一条命令启动多个容器，使用Docker Compose不再需要使用shell脚本来启动容器。 </p>
+<p>Compose 通过一个配置文件来管理多个Docker容器，在配置文件中，所有的容器通过services来定义，然后使用docker-compose脚本来启动，停止和重启应用，和应用中的服务以及所有依赖服务的容器，非常适合组合使用多个容器进行开发的场景。</p>
+<p>docker-compose默认的模板文件是 docker-compose.yml，其中定义的每个服务都必须通过 image 指令指定镜像或 build 指令（需要 Dockerfile）来自动构建。</p>
+<p>其它大部分指令都跟 docker run 中的类似。</p>
+<p>如果使用 build 指令，在 Dockerfile 中设置的选项(例如：CMD, EXPOSE, VOLUME, ENV 等) 将会自动被获取，无需在 docker-compose.yml 中再次设置。<br>使用Compose 基本上分为三步：</p>
+<p>1.Dockerfile 定义应用的运行环境<br>2.docker-compose.yml 定义组成应用的各服务<br>3.docker-compose up 启动整个应用</p>
+<p>2.安装Compose</p>
+<p>两种docker-compose安装方式</p>
+<p>1.从github上下载docker-compose二进制文件安装</p>
+<p>下载最新版的docker-compose文件 </p>
+<p>$ sudo curl -L <a href="https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname" target="_blank" rel="noopener">https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname</a> -s<code>-</code>uname -m` -o /usr/local/bin/docker-compose<br>添加可执行权限<br>$ sudo chmod +x /usr/local/bin/docker-compose<br>测试安装结果 </p>
+<p>$ docker-compose –version<br>docker-compose version 1.16.1, build 1719ceb<br>2.pip安装</p>
+<p>2.1、安装python-pip</p>
+<p>yum -y install epel-release<br>yum -y install python-pip<br>2.2、安装docker-compose<br>pip install docker-compose<br>待安装完成后，执行查询版本的命令，即可安装docker-compose</p>
+<p>[root@swarm01 fendo]# docker-compose version<br>docker-compose version 1.21.2, build a133471<br>docker-py version: 3.3.0<br>CPython version: 2.7.5<br>OpenSSL version: OpenSSL 1.0.2k-fips  26 Jan 2017<br>3.docker-compose.yml 配置文件详解</p>
+<p>docker-compose文件结构,官方提供了一个 yaml Docker Compose 配置文件的标准例子</p>
+<p>version: “3”<br>services:</p>
+<p>  redis:<br>    image: redis:alpine<br>    ports:<br>      - “6379”<br>    networks:<br>      - frontend<br>    deploy:<br>      replicas: 2<br>      update_config:<br>        parallelism: 2<br>        delay: 10s<br>      restart_policy:<br>        condition: on-failure</p>
+<p>  db:<br>    image: postgres:9.4<br>    volumes:<br>      - db-data:/var/lib/postgresql/data<br>    networks:<br>      - backend<br>    deploy:<br>      placement:<br>        constraints: [node.role == manager]</p>
+<p>  vote:<br>    image: dockersamples/examplevotingapp_vote:before<br>    ports:<br>      - 5000:80<br>    networks:<br>      - frontend<br>    depends_on:<br>      - redis<br>    deploy:<br>      replicas: 2<br>      update_config:<br>        parallelism: 2<br>      restart_policy:<br>        condition: on-failure</p>
+<p>  result:<br>    image: dockersamples/examplevotingapp_result:before<br>    ports:<br>      - 5001:80<br>    networks:<br>      - backend<br>    depends_on:<br>      - db<br>    deploy:<br>      replicas: 1<br>      update_config:<br>        parallelism: 2<br>        delay: 10s<br>      restart_policy:<br>        condition: on-failure</p>
+<p>  worker:<br>    image: dockersamples/examplevotingapp_worker<br>    networks:<br>      - frontend<br>      - backend<br>    deploy:<br>      mode: replicated<br>      replicas: 1<br>      labels: [APP=VOTING]<br>      restart_policy:<br>        condition: on-failure<br>        delay: 10s<br>        max_attempts: 3<br>        window: 120s<br>      placement:<br>        constraints: [node.role == manager]</p>
+<p>  visualizer:<br>    image: dockersamples/visualizer:stable<br>    ports:<br>      - “8080:8080”<br>    stop_grace_period: 1m30s<br>    volumes:<br>      - “/var/run/docker.sock:/var/run/docker.sock”<br>    deploy:<br>      placement:<br>        constraints: [node.role == manager]</p>
+<p>networks:<br>  frontend:<br>  backend:</p>
+<p>volumes:<br>  db-data:<br>一份标准配置文件应该包含 version、services、networks 三大部分，其中最关键的就是 services 和 networks 两个部分</p>
+<p>3.1、文件配置</p>
+<p>compose 文件是一个定义服务、 网络和卷的 YAML 文件 。Compose 文件的默认路径是 ./docker-compose.yml</p>
+<p>服务定义包含应用于为该服务启动的每个容器的配置，就像传递命令行参数一样 docker container create。同样，网络和卷的定义类似于 docker network create 和 docker volume create。</p>
+<p>正如 docker container create 在 Dockerfile 指定选项，如 CMD、 EXPOSE、VOLUME、ENV，在默认情况下，你不需要再次指定它们docker-compose.yml。</p>
+<p>可以使用 Bash 类 ${VARIABLE} 语法在配置值中使用环境变量。</p>
+<p>提示: 可以是用 .yml 或 .yaml 作为文件扩展名</p>
+<p>3.2、版本</p>
+<p>Compose目前为止有三个版本分别为Version 1,Version 2,Version 3,Compose区分Version 1和Version 2（Compose 1.6.0+，Docker Engine 1.10.0+）。Version 2支持更多的指令。Version 1没有声明版本默认是”version 1”。Version 1将来会被弃用。</p>
+<p>3.3、配置选项</p>
+<p>１.bulid</p>
+<p>服务除了可以基于指定的镜像，还可以基于一份 Dockerfile，在使用 up 启动之时执行构建任务，这个构建标签就是 build，它可以指定 Dockerfile 所在文件夹的路径。Compose 将会利用它自动构建这个镜像，然后使用这个镜像启动服务容器<br>build: /path/to/build/dir<br>也可以是相对路径</p>
+<p>build: ./dir<br>设定上下文根目录，然后以该目录为准指定 Dockerfile</p>
+<p>build:<br>  context: ../<br>  dockerfile: path/of/Dockerfile</p>
+<ol start="2">
+<li>context</li>
+</ol>
+<p>context 选项可以是 Dockerfile 的文件路径，也可以是到链接到 git 仓库的url，当提供的值是相对路径时，它被解析为相对于撰写文件的路径，此目录也是发送到 Docker 守护进程的 context</p>
+<p>build:<br>  context: ./dir<br>３. dockerfile</p>
+<p>使用此 dockerfile 文件来构建，必须指定构建路径<br>build:<br>  context: .<br>  dockerfile: Dockerfile-alternate<br>4.image</p>
+<p>services:<br>  web:<br>    image: nginx<br>在 services 标签下的第二级标签是 web，这个名字是用户自己自定义，它就是服务名称。<br>image 则是指定服务的镜像名称或镜像 ID。如果镜像在本地不存在，Compose 将会尝试拉取这个镜像。<br>例如下面这些格式都是可以的：<br>image: redis<br>image: ubuntu:14.04<br>image: tutum/influxdb<br>image: a4bc65fd</p>
+<ol start="5">
+<li>args</li>
+</ol>
+<p>添加构建参数，这些参数是仅在构建过程中可访问的环境变量<br>首先， 在Dockerfile中指定参数：<br>ARG fendo<br>ARG password</p>
+<p>RUN echo “Build number: $fendo”<br>RUN script-requiring-password.sh “$password”<br>然后指定 build 下的参数,可以传递映射或列表</p>
+<p>build:<br>  context: .<br>  args:<br>    fendo: 1<br>    password: fendo<br>或</p>
+<p>build:<br>  context: .<br>  args:<br>    - fendo=1<br>    - password=fendo<br>指定构建参数时可以省略该值，在这种情况下，构建时的值默认构成运行环境中的值</p>
+<p>args:</p>
+<ul>
+<li>fendo</li>
+<li>password<br>6.command</li>
+</ul>
+<p>使用 command 可以覆盖容器启动后默认执行的命令。</p>
+<p>command: bundle exec thin -p 3000<br>该命令也可以是一个列表，方法类似于 dockerfile:</p>
+<p>command: [“bundle”, “exec”, “thin”, “-p”, “3000”]<br>7.container_name</p>
+<p>Compose 的容器名称格式是：&lt;项目名称&gt;&lt;服务名称&gt;&lt;序号&gt;</p>
+<p>虽然可以自定义项目名称、服务名称，但是如果你想完全控制容器的命名，可以使用这个标签指定：</p>
+<p>container_name: app<br>这样容器的名字就指定为 app 了。</p>
+<p>8.depends_on</p>
+<p>在使用 Compose 时，最大的好处就是少打启动命令，但是一般项目容器启动的顺序是有要求的，如果直接从上到下启动容器，必然会因为容器依赖问题而启动失败。</p>
+<p>例如在没启动数据库容器的时候启动了应用容器，这时候应用容器会因为找不到数据库而退出，为了避免这种情况我们需要加入一个标签，就是 depends_on，这个标签解决了容器的依赖、启动先后的问题。</p>
+<p>例如下面容器会先启动 redis 和 db 两个服务，最后才启动 web 服务：</p>
+<p>version: ‘3’<br>services:<br>  web:<br>    build: .<br>    depends_on:<br>      - db<br>      - redis<br>  redis:<br>    image: redis<br>  db:<br>    image: postgres<br>注意的是，默认情况下使用 docker-compose up web 这样的方式启动 web 服务时，也会启动 redis 和 db 两个服务，因为在配置文件中定义了依赖关系。</p>
+<p>9.pid</p>
+<p>pid: “host”<br>将PID模式设置为主机PID模式，跟主机系统共享进程命名空间。容器使用这个标签将能够访问和操纵其他容器和宿主机的名称空间。</p>
+<p>10.ports</p>
+<p>映射端口的标签。</p>
+<p>使用HOST:CONTAINER格式或者只是指定容器的端口，宿主机会随机映射端口。</p>
+<p>ports:</p>
+<ul>
+<li>“3000”</li>
+<li>“8000:8000”</li>
+<li>“49100:22”</li>
+<li>“127.0.0.1:8001:8001”<br>注意：当使用HOST:CONTAINER格式来映射端口时，如果你使用的容器端口小于60你可能会得到错误得结果，因为YAML将会解析xx:yy这种数字格式为60进制。所以建议采用字符串格式。<br>11.extra_hosts</li>
+</ul>
+<p>添加主机名的标签，就是往/etc/hosts文件中添加一些记录，与Docker client的–add-host类似：</p>
+<p>extra_hosts:</p>
+<ul>
+<li>“somehost:162.242.195.82”</li>
+<li>“otherhost:50.31.209.229”<br>启动之后查看容器内部hosts：</li>
+</ul>
+<p>162.242.195.82  somehost<br>50.31.209.229   otherhost</p>
+<p>12.volumes</p>
+<p>挂载一个目录或者一个已存在的数据卷容器，可以直接使用 [HOST:CONTAINER] 这样的格式，或者使用 [HOST:CONTAINER:ro] 这样的格式，后者对于容器来说，数据卷是只读的，这样可以有效保护宿主机的文件系统。<br>Compose的数据卷指定路径可以是相对路径，使用 . 或者 .. 来指定相对目录。</p>
+<p>数据卷的格式可以是下面多种形式：</p>
+<p>volumes:<br>  // 只是指定一个路径，Docker 会自动在创建一个数据卷（这个路径是容器内部的）。</p>
+<ul>
+<li><p>/var/lib/mysql</p>
+<p>// 使用绝对路径挂载数据卷</p>
+</li>
+<li><p>/opt/data:/var/lib/mysql</p>
+<p>// 以 Compose 配置文件为中心的相对路径作为数据卷挂载到容器。</p>
+</li>
+<li><p>./cache:/tmp/cache</p>
+<p>// 使用用户的相对路径（~/ 表示的目录是 /home/&lt;用户目录&gt;/ 或者 /root/）。</p>
+</li>
+<li><p>~/configs:/etc/configs/:ro</p>
+<p>// 已经存在的命名的数据卷。</p>
+</li>
+<li><p>datavolume:/var/lib/mysql<br>如果你不使用宿主机的路径，你可以指定一个volume_driver。</p>
+</li>
+</ul>
+<p>volume_driver: mydriver<br>原文：<a href="https://blog.csdn.net/u011781521/article/details/80464826" target="_blank" rel="noopener">https://blog.csdn.net/u011781521/article/details/80464826</a> </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/docker-compose/" data-id="ckaqhwj1a000741hihh9xa4la" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-runner.py" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/runner.py/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/runner.py/">runner.py</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="runner-py"><a href="#runner-py" class="headerlink" title="runner.py"></a>runner.py</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pexpect</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">import</span> urlparse</span><br><span class="line"><span class="keyword">except</span> Exception:</span><br><span class="line">    <span class="keyword">import</span> urllib.parse <span class="keyword">as</span> urlparse</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">import</span> ConfigParser</span><br><span class="line"><span class="keyword">except</span> Exception:</span><br><span class="line">    <span class="keyword">import</span> configparser <span class="keyword">as</span> ConfigParser</span><br><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> configobj <span class="keyword">import</span> ConfigObj, ConfigObjError</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logger</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    my logger tools</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    default_formatter = logging.Formatter(</span><br><span class="line">        fmt=<span class="string">'%(asctime)s %(levelname)-8s: %(name)s: %(message)s'</span>,</span><br><span class="line">        datefmt=<span class="string">'%Y-%m-%d %H:%M:%S'</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_stream_handler</span><span class="params">(stream=sys.stdout, level=logging.INFO, formatter=default_formatter)</span>:</span></span><br><span class="line">        logger = logging.getLogger(<span class="string">""</span>)</span><br><span class="line">        handler = logging.StreamHandler(stream)</span><br><span class="line">        handler.setFormatter(formatter)</span><br><span class="line">        handler.setLevel(level)</span><br><span class="line">        logger.addHandler(handler)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_file_handler</span><span class="params">(logfile=None, level=logging.DEBUG, formatter=default_formatter)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> logfile <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            logger = logging.getLogger(<span class="string">""</span>)</span><br><span class="line">            handler = logging.FileHandler(logfile, <span class="string">"w"</span>)</span><br><span class="line">            handler.setFormatter(formatter)</span><br><span class="line">            handler.setLevel(level)</span><br><span class="line">            logger.addHandler(handler)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">log_test</span><span class="params">(stream=sys.stdout, stream_level=logging.INFO, logfile=None, logfile_level=logging.DEBUG, formatter=default_formatter)</span>:</span></span><br><span class="line">        Logger.add_file_handler(logfile, logfile_level, formatter)</span><br><span class="line">        Logger.add_stream_handler(stream, stream_level, formatter)</span><br><span class="line">        logger = logging.getLogger(<span class="string">""</span>)</span><br><span class="line">        logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Logger.log_test(logfile=<span class="string">"test.log"</span>)</span><br><span class="line">cli_servers = [<span class="string">"telnet"</span>, <span class="string">"ssh"</span>, <span class="string">"raw"</span>, <span class="string">"tio"</span>]</span><br><span class="line">log = logging.getLogger(<span class="string">"runner"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">log_pexpect</span><span class="params">(pexpect.spawn)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(log_pexpect, self).__init__(*args, **kwargs)</span><br><span class="line">        self.log_test = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">expect</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        _e = super(log_pexpect, self).expect(*args, **kwargs)</span><br><span class="line">        <span class="keyword">if</span> self.log_test:</span><br><span class="line">            log.info(self.before)</span><br><span class="line">        <span class="keyword">return</span> _e</span><br><span class="line"></span><br><span class="line">    <span class="comment"># I did not find a way to make the telnet client not echo back our</span></span><br><span class="line">    <span class="comment"># commands. This workaround consumes the echo and allows this pattern:</span></span><br><span class="line">    <span class="comment">#         sendline("print 42")</span></span><br><span class="line">    <span class="comment">#         expect("42")  # match command output and not the command itself</span></span><br><span class="line">    <span class="comment">#         expect(prompt)</span></span><br><span class="line">    <span class="comment"># Without this patch,  expect("42") will match the echo first (print 42),</span></span><br><span class="line">    <span class="comment"># and leave the real output untouched</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sendline</span><span class="params">(self, s=<span class="string">''</span>, expect_echo=True)</span>:</span></span><br><span class="line">        n = super(log_pexpect, self).sendline(s)</span><br><span class="line">        <span class="keyword">if</span> expect_echo:</span><br><span class="line">            <span class="keyword">if</span> s:</span><br><span class="line">                self.expect_exact(s)</span><br><span class="line">            self.expect_exact(os.linesep)</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_logfile</span><span class="params">(self, logfile)</span>:</span></span><br><span class="line">        <span class="comment"># logfile_read contains the whole session but has the advantage over</span></span><br><span class="line">        <span class="comment"># logfile that it is not obfuscated by duplicated lines</span></span><br><span class="line">        <span class="keyword">if</span> logfile:</span><br><span class="line">            self.logfile_read = open(logfile, <span class="string">"w"</span>)</span><br><span class="line">            self.livelog = open(logfile, <span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validate_cli</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> url.scheme <span class="keyword">in</span> cli_servers, <span class="string">"bad console type \"%s\""</span> % url.scheme</span><br><span class="line">    <span class="keyword">assert</span> url.netloc != <span class="string">""</span>, <span class="string">"console server is missing"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_cli_url</span><span class="params">(string)</span>:</span></span><br><span class="line">    <span class="string">"""Check that the argument is a supported console URL"""</span></span><br><span class="line">    url = urlparse.urlparse(string)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        validate_cli(url)</span><br><span class="line">    <span class="keyword">except</span> AssertionError:</span><br><span class="line">        log.error(<span class="string">"%s is not a valid console URL"</span> % string)</span><br><span class="line">        <span class="keyword">raise</span></span><br><span class="line">    <span class="keyword">return</span> url</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TelnetCLI</span><span class="params">(log_pexpect)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, cli_url, logfile=None, do_spawn=True)</span>:</span></span><br><span class="line">        self.cli_url = parse_cli_url(cli_url)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> do_spawn:</span><br><span class="line">            self.closed = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        cmd = <span class="string">" "</span>.join(self.cmd())</span><br><span class="line">        super(TelnetCLI, self).__init__(cmd)</span><br><span class="line">        self.set_logfile(logfile)</span><br><span class="line"></span><br><span class="line">        self.uboot_prompt = <span class="string">"=&gt; "</span></span><br><span class="line">        self.linux_prompt = <span class="string">"[rO]\S+ *[$#] |[rO]\S+ .*\][$#] "</span></span><br><span class="line">        self.prompt = self.uboot_prompt</span><br><span class="line">        <span class="comment"># Match the last line of the telnet banner</span></span><br><span class="line">        self.expect(<span class="string">"Escape character is "</span>)</span><br><span class="line">        <span class="comment"># Wait a little to make sure the connection is really open. Far away or</span></span><br><span class="line">        <span class="comment"># slow servers take about 1.15 seconds to reply.</span></span><br><span class="line">        index = self.expect([<span class="string">"Connection closed"</span>,</span><br><span class="line">                             pexpect.EOF,</span><br><span class="line">                             pexpect.TIMEOUT], timeout=<span class="number">1.3</span>)</span><br><span class="line">        <span class="keyword">if</span> index == <span class="number">0</span> <span class="keyword">or</span> self.eof():</span><br><span class="line">            log.error(<span class="string">"connection failed"</span>)</span><br><span class="line">            <span class="keyword">raise</span> pexpect.EOF(self.before + self.after)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cmd</span><span class="params">(self)</span>:</span></span><br><span class="line">        host, port = self.cli_url.netloc.split(<span class="string">":"</span>)</span><br><span class="line">        <span class="keyword">return</span> [<span class="string">"telnet"</span>, host, port]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_uboot_prompt</span><span class="params">(self, prompt=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> prompt:</span><br><span class="line">            self.prompt = self.uboot_prompt</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.prompt = prompt</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_linux_prompt</span><span class="params">(self, prompt=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> prompt:</span><br><span class="line">            self.prompt = self.linux_prompt</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.prompt = prompt</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># close() in pexpect.py has one bug, it can not close telnet properly</span></span><br><span class="line">        <span class="comment"># in some situations, see https://bugzilla.redhat.com/show_bug.cgi?id=89653,</span></span><br><span class="line">        <span class="comment"># so override close() here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.closed:</span><br><span class="line">            self.sendcontrol(<span class="string">"]"</span>)</span><br><span class="line">            self.expect(<span class="string">"&gt;"</span>, <span class="number">3</span>)</span><br><span class="line">            self.sendline(<span class="string">"quit"</span>, expect_echo=<span class="literal">False</span>)</span><br><span class="line">            super(TelnetCLI, self).close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PromptNotFound</span><span class="params">(Exception)</span>:</span></span><br><span class="line">    <span class="string">"""An error from trying to convert a command line string to a type."""</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_args</span><span class="params">()</span>:</span></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">"config"</span>, nargs=<span class="string">'+'</span>, help=<span class="string">"configuration for the test"</span>)</span><br><span class="line"></span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    <span class="keyword">return</span> args</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_cmd</span><span class="params">(cli, cmd=<span class="string">''</span>, timeout=<span class="number">30</span>, check_prompt=False, check_ret=False,</span></span></span><br><span class="line"><span class="function"><span class="params">             expect_echo=True)</span>:</span></span><br><span class="line">    <span class="string">""" Uboot command wrapper that allows multiple types of checks.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param cli: command line interface object</span></span><br><span class="line"><span class="string">    :param cmd: command string</span></span><br><span class="line"><span class="string">    :param timeout: expect timeout while waiting for prompt</span></span><br><span class="line"><span class="string">    :param check_prompt: verify prompt after command execution</span></span><br><span class="line"><span class="string">    :type check_prompt: boolean</span></span><br><span class="line"><span class="string">    :param check_ret: verify command return code (raise error if not 0)</span></span><br><span class="line"><span class="string">    :type check_ret: boolean</span></span><br><span class="line"><span class="string">    :param expect_echo: expect the command echo before continuing, in order</span></span><br><span class="line"><span class="string">        to avoid timeouts when incomplete echo is displayed</span></span><br><span class="line"><span class="string">    :type expect_echo: boolean</span></span><br><span class="line"><span class="string">    :return: command output as string (when using check_prompt or check_ret)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> timeout:</span><br><span class="line">        timeout = <span class="number">30</span></span><br><span class="line">    log.info(<span class="string">"Sending: %s, timeout=%s, prompt=%s, ret=%s, echo=%s"</span> % (cmd, timeout, check_prompt, check_ret, expect_echo))</span><br><span class="line">    cli.sendline(cmd, expect_echo=expect_echo)</span><br><span class="line">    cmd_output = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># These codes are workaround for unstability of LS2 simulator.</span></span><br><span class="line">    <span class="comment"># Comment out, or else lars needs to wait for each command 2 seconds.</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    # check whether the cmd has been fully sent out,</span></span><br><span class="line"><span class="string">    # if not, will retry 3 times</span></span><br><span class="line"><span class="string">    re_send = 3</span></span><br><span class="line"><span class="string">    while re_send &gt; 0:</span></span><br><span class="line"><span class="string">        re_send -= 1</span></span><br><span class="line"><span class="string">        if not valid_uboot_cmd(cli):</span></span><br><span class="line"><span class="string">            log.info("Resend cmd %s" % cmd)</span></span><br><span class="line"><span class="string">            cli.sendline(cmd, expect_echo=expect_echo)</span></span><br><span class="line"><span class="string">        else:</span></span><br><span class="line"><span class="string">            break</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> check_prompt <span class="keyword">or</span> check_ret:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cli.expect(cli.prompt, timeout)</span><br><span class="line">        <span class="keyword">except</span> pexpect.TIMEOUT:</span><br><span class="line">            log.error(<span class="string">"Prompt not found after \"%s\"! Command output:\n%s"</span> %</span><br><span class="line">                      (cmd, cli.before))</span><br><span class="line">            <span class="keyword">raise</span> PromptNotFound(<span class="string">"Prompt not found after \"%s\"!"</span> % cmd)</span><br><span class="line">        cmd_output = cli.before</span><br><span class="line">    <span class="keyword">if</span> check_ret:</span><br><span class="line">        log.debug(<span class="string">"Return code check"</span>)</span><br><span class="line">        cli.sendline(<span class="string">"echo $?"</span>) <span class="comment">#check ret code</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cli.expect(<span class="string">'^0'</span>, timeout=<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">except</span> pexpect.TIMEOUT:</span><br><span class="line">            log.error(<span class="string">"Command retcode non-zero for \"%s\"! Command output:\n%s"</span> %</span><br><span class="line">                      (cmd, cmd_output))</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">"Command retcode non-zero for \"%s\"!"</span> % cmd)</span><br><span class="line">        cli.expect(cli.prompt, timeout=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> cmd_output</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_uboot_cmd</span><span class="params">(cli, cmd=<span class="string">''</span>, timeout=<span class="number">30</span>, check_prompt=False, check_ret=False,</span></span></span><br><span class="line"><span class="function"><span class="params">                   expect_echo=True)</span>:</span></span><br><span class="line">    <span class="string">""" Uboot command wrapper that allows multiple types of checks.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param cli: command line interface object</span></span><br><span class="line"><span class="string">    :param cmd: command string</span></span><br><span class="line"><span class="string">    :param timeout: expect timeout while waiting for prompt</span></span><br><span class="line"><span class="string">    :param check_prompt: verify prompt after command execution</span></span><br><span class="line"><span class="string">    :type check_prompt: boolean</span></span><br><span class="line"><span class="string">    :param check_ret: verify command return code (raise error if not 0)</span></span><br><span class="line"><span class="string">    :type check_ret: boolean</span></span><br><span class="line"><span class="string">    :param expect_echo: expect the command echo before continuing, in order</span></span><br><span class="line"><span class="string">        to avoid timeouts when incomplete echo is displayed</span></span><br><span class="line"><span class="string">    :type expect_echo: boolean</span></span><br><span class="line"><span class="string">    :return: command output as string (when using check_prompt or check_ret)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> timeout:</span><br><span class="line">        timeout = <span class="number">30</span></span><br><span class="line">    log.info(<span class="string">"Sending: %s, timeout=%s, prompt=%s, ret=%s, echo=%s"</span> % (cmd, timeout, check_prompt, check_ret, expect_echo))</span><br><span class="line">    cli.sendline(cmd, expect_echo=expect_echo)</span><br><span class="line">    cmd_output = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> check_prompt <span class="keyword">or</span> check_ret:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            n = cli.expect([cli.prompt, <span class="string">"Hit any key to stop autoboot:"</span>], timeout)</span><br><span class="line">            <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">                cli.sendline(<span class="string">"\n"</span>)</span><br><span class="line">        <span class="keyword">except</span> pexpect.TIMEOUT:</span><br><span class="line">            log.error(<span class="string">"Prompt not found after \"%s\"! Command output:\n%s"</span> %</span><br><span class="line">                      (cmd, cli.before))</span><br><span class="line">            <span class="keyword">raise</span> PromptNotFound(<span class="string">"Prompt not found after \"%s\"!"</span> % cmd)</span><br><span class="line">        cmd_output = cli.before</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        n = cli.expect([cli.prompt, <span class="string">"Hit any key to stop autoboot:"</span>], timeout=<span class="number">300</span>)</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">            cli.sendline(<span class="string">"\n"</span>)</span><br><span class="line">    <span class="keyword">if</span> check_ret:</span><br><span class="line">        log.debug(<span class="string">"Return code check"</span>)</span><br><span class="line">        cli.sendline(<span class="string">"echo $?"</span>) <span class="comment">#check ret code</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cli.expect(<span class="string">'^0'</span>, timeout=<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">except</span> pexpect.TIMEOUT:</span><br><span class="line">            log.error(<span class="string">"Command retcode non-zero for \"%s\"! Command output:\n%s"</span> %</span><br><span class="line">                      (cmd, cmd_output))</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">"Command retcode non-zero for \"%s\"!"</span> % cmd)</span><br><span class="line">        cli.expect(cli.prompt, timeout=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> cmd_output</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">config_shell</span><span class="params">(cli, columns=<span class="number">2000</span>)</span>:</span></span><br><span class="line">    <span class="string">"""Configures shell with default values - removes dependency on rootfs.</span></span><br><span class="line"><span class="string">    Use this before first operation in linux console to ensure a fixed prompt</span></span><br><span class="line"><span class="string">    and a convenient raw length for long commands</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param cli: command line interface object</span></span><br><span class="line"><span class="string">    :param columns: longest command line should be lower than this to avoid</span></span><br><span class="line"><span class="string">        command echo issues</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    log.info(<span class="string">"Configuring shell"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        send_cmd(cli, <span class="string">"which stty"</span>, check_ret=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        log.warning(<span class="string">"NO stty! Please enable CONFIG_BUSYBOX_CONFIG_STTY!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        send_cmd(cli, <span class="string">"stty columns 2000"</span>, check_ret=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    send_cmd(cli, <span class="string">"export TERM=linux"</span>, check_ret=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    send_cmd(cli, <span class="string">"export EXTRACT_UNSAFE_SYMLINKS=1"</span>, check_ret=<span class="literal">True</span>)</span><br><span class="line">    send_cmd(cli, <span class="string">"alias ls='ls --color=never'"</span>, check_ret=<span class="literal">True</span>)</span><br><span class="line">    send_cmd(cli, <span class="string">"alias grep='grep --color=never'"</span>, check_ret=<span class="literal">True</span>)</span><br><span class="line">    send_cmd(cli, <span class="string">"mkdir -p /media/ram"</span>, check_ret=<span class="literal">True</span>)</span><br><span class="line">    send_cmd(cli, <span class="string">"mount -t tmpfs tmpfs /media/ram/"</span>, check_ret=<span class="literal">True</span>, timeout=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_boot</span><span class="params">(cli, timeout=<span class="number">300</span>)</span>:</span></span><br><span class="line">    <span class="string">"""Checks for successful login. Verifies the kernel bootlog and logs</span></span><br><span class="line"><span class="string">    warnings and errors. By default, when a fatal error is encountered</span></span><br><span class="line"><span class="string">    it raises an exception</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param cli: command line interface object</span></span><br><span class="line"><span class="string">    :param cfg: board object (or any dict containing the necessary info)</span></span><br><span class="line"><span class="string">    :param cont_on_error: if ``True``, continue if an error keyword is found</span></span><br><span class="line"><span class="string">    :param dump_kernel_cfg: if ``True``, execute zcat /proc/config.gz cmd</span></span><br><span class="line"><span class="string">    :param timeout: timeout of linux startup</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    fatal_errors = [</span><br><span class="line">        <span class="string">"(?i)kernel panic"</span>,</span><br><span class="line">        <span class="string">"(?i)Internal error: Oops:"</span>,</span><br><span class="line">        <span class="string">"(?i)rebooting in * seconds"</span>,</span><br><span class="line">        <span class="string">"ramdisk - allocation error"</span></span><br><span class="line">    ]</span><br><span class="line">    warnings = [</span><br><span class="line">        <span class="string">"(?i)failed"</span>,</span><br><span class="line">        <span class="string">"(?i)warning"</span>,</span><br><span class="line">        <span class="string">"(?i)call trace[\s\S]*end trace"</span></span><br><span class="line">    ]</span><br><span class="line">    password = <span class="string">"root"</span></span><br><span class="line">    match_list = [<span class="string">"login:"</span>, cli.prompt, <span class="string">"press Control-D to continue"</span>] + fatal_errors + warnings</span><br><span class="line">    cli.set_linux_prompt()</span><br><span class="line">    log.debug(<span class="string">"linux_prompt as %s"</span> % cli.prompt)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        found = cli.expect(match_list, timeout=timeout)</span><br><span class="line">        <span class="keyword">if</span> found == <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># do login</span></span><br><span class="line">            cli.sendline(<span class="string">"root"</span>)</span><br><span class="line">            found = cli.expect([<span class="string">"Password:"</span>, cli.prompt], timeout=<span class="number">30</span>)</span><br><span class="line">            <span class="keyword">if</span> found == <span class="number">0</span>:</span><br><span class="line">                cli.sendline(password, expect_echo=<span class="literal">False</span>)</span><br><span class="line">                cli.sendline(<span class="string">" "</span>)</span><br><span class="line">                cli.expect(cli.prompt)</span><br><span class="line">            cli.sendline(<span class="string">" "</span>)</span><br><span class="line">            config_shell(cli)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_command</span><span class="params">(cmd)</span>:</span></span><br><span class="line">    cmds = &#123;</span><br><span class="line">        <span class="string">'cmd'</span>: <span class="string">''</span>,</span><br><span class="line">        <span class="string">'timeout'</span>: <span class="literal">None</span>,</span><br><span class="line">        <span class="string">'check_prompt'</span>: <span class="string">'False'</span>,</span><br><span class="line">        <span class="string">'check_ret'</span>: <span class="string">'False'</span>,</span><br><span class="line">        <span class="string">'expect_echo'</span>: <span class="string">'True'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'@@'</span> <span class="keyword">not</span> <span class="keyword">in</span> cmd:</span><br><span class="line">        cmds[<span class="string">'cmd'</span>] = cmd</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        plist = cmd.split(<span class="string">'@@'</span>)</span><br><span class="line">        cmds[<span class="string">'cmd'</span>] = plist[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> plist[<span class="number">1</span>:]:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'=='</span> <span class="keyword">in</span> i:</span><br><span class="line">                k, v = i.split(<span class="string">'=='</span>)</span><br><span class="line">                <span class="keyword">if</span> k <span class="keyword">in</span> cmds:</span><br><span class="line">                    cmds[k] = v</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    log.warning(<span class="string">'%s is ignored in command %s'</span> % (i, cmd))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                log.warning(<span class="string">'%s is ignored in command %s'</span> % (i, cmd))</span><br><span class="line">    <span class="keyword">if</span> cmds[<span class="string">'timeout'</span>]:</span><br><span class="line">        cmds[<span class="string">'timeout'</span>] = int(cmds[<span class="string">'timeout'</span>])</span><br><span class="line">    <span class="keyword">if</span> cmds[<span class="string">'check_prompt'</span>].lower() == <span class="string">"false"</span>:</span><br><span class="line">        cmds[<span class="string">'check_prompt'</span>] = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cmds[<span class="string">'check_prompt'</span>] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> cmds[<span class="string">'check_ret'</span>].lower() == <span class="string">"false"</span>:</span><br><span class="line">        cmds[<span class="string">'check_ret'</span>] = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cmds[<span class="string">'check_ret'</span>] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> cmds[<span class="string">'expect_echo'</span>].lower() == <span class="string">"false"</span>:</span><br><span class="line">        cmds[<span class="string">'expect_echo'</span>] = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cmds[<span class="string">'expect_echo'</span>] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cmds</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_uboot_script</span><span class="params">(cli, commands)</span>:</span></span><br><span class="line">    cli.set_uboot_prompt()</span><br><span class="line">    <span class="keyword">for</span> cmd <span class="keyword">in</span> commands:</span><br><span class="line">        commands = parse_command(cmd)</span><br><span class="line">        <span class="keyword">if</span> commands[<span class="string">"cmd"</span>] == <span class="string">"boot"</span>:</span><br><span class="line">            cli.sendline(<span class="string">"boot"</span>)</span><br><span class="line">            check_boot(cli)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            send_uboot_cmd(cli, **commands)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_linux_script</span><span class="params">(cli, commands)</span>:</span></span><br><span class="line">    cli.set_linux_prompt()</span><br><span class="line">    <span class="keyword">for</span> cmd <span class="keyword">in</span> commands:</span><br><span class="line">        commands = parse_command(cmd)</span><br><span class="line">        send_uboot_cmd(cli, **commands)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_cli</span><span class="params">(url)</span>:</span></span><br><span class="line">    cli = TelnetCLI(url, logfile=<span class="string">"cli.log"</span>)</span><br><span class="line">    <span class="keyword">return</span> cli</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_config_file</span><span class="params">(yaml_file)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> open(yaml_file, <span class="string">'r'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">        data_dic = yaml.safe_load(fp)</span><br><span class="line">        log.info(<span class="string">"load yaml config successfully, [%s]."</span> % yaml_file)</span><br><span class="line"></span><br><span class="line">        log.debug(<span class="string">"yaml config file: %s"</span> % yaml_file)</span><br><span class="line">        url = data_dic.get(<span class="string">"url"</span>)</span><br><span class="line">        log.info(<span class="string">"board connect url: %s"</span> % url)</span><br><span class="line">        <span class="comment">#run_scripts(data_dic)</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cli = get_cli(url)</span><br><span class="line">            uboot_cmds = data_dic.get(<span class="string">"uboot_commands"</span>, <span class="literal">None</span>)</span><br><span class="line">            kernel_commands = data_dic.get(<span class="string">"kernel_commands"</span>, <span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">if</span> uboot_cmds:</span><br><span class="line">                run_uboot_script(cli, uboot_cmds)</span><br><span class="line">            <span class="keyword">if</span> kernel_commands:</span><br><span class="line">                run_linux_script(cli, kernel_commands)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            <span class="keyword">if</span> cli:</span><br><span class="line">                cli.close()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    args = parse_args()</span><br><span class="line">    log.info(args)</span><br><span class="line">    print(args.config)</span><br><span class="line">    <span class="keyword">for</span> config <span class="keyword">in</span> args.config:</span><br><span class="line">        run_config_file(config)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Yaml-Config"><a href="#Yaml-Config" class="headerlink" title="Yaml Config"></a>Yaml Config</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">uboot_commands:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">reboot</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pci</span> <span class="string">enum</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">serverip</span>         <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">ethact</span>           <span class="string">FM1@DTSEC5</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">dhcp</span></span><br><span class="line"><span class="comment">#  - dhcp a0000000 xxx/lsdk2004/OOBE-lsdk2004/images/firmware_ls1046afrwy_uboot_qspiboot.img</span></span><br><span class="line"><span class="comment">#  - sf probe 0:0; sf erase 0 +$filesize; sf update a0000000 0 $filesize @@timeout==900@@check_ret==true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">dhcp</span> <span class="string">a0000000</span> <span class="string">xxxx/lsdk2004/OOBE-lsdk2004/images/firmware_ls1046afrwy_uboot_sdboot.img</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">mmc</span> <span class="string">write</span> <span class="string">a0000000</span> <span class="number">8</span> <span class="string">1fff8</span> <span class="string">@@timeout==900@@check_ret==true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">reset</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">serverip</span>         <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">ethact</span>           <span class="string">FM1@DTSEC5</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">dhcp</span> <span class="string">a0000000</span> <span class="string">xxxx/lsdk2004/OOBE-lsdk2004/images/firmware_ls1046afrwy_uboot_sdboot.img</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">mmc</span> <span class="string">write</span> <span class="string">a0000000</span> <span class="number">8</span> <span class="string">1fff8</span> <span class="string">@@timeout==900@@check_ret==true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">reset</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># tftp kernel</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">serverip</span>         <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">ethact</span>           <span class="string">FM1@DTSEC5</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">dhcp</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">othbootargs</span>      <span class="string">console=ttyS0,115200</span>  <span class="string">earlycon=uart8250,mmio,0x21c0500</span>  <span class="string">ramdisk_size=0x40000000</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">bootargs</span> <span class="string">root=/dev/ram0</span> <span class="string">rw</span> <span class="string">$othbootargs</span> <span class="string">ip=dhcp</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tftpboot</span> <span class="string">a0000000</span> <span class="string">xxxx/lsdk2004/OOBE-lsdk2004/images/lsdk2004_yocto_tiny_LS_arm64.itb</span> <span class="string">@@timeout==900@@check_ret==true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">setenv</span> <span class="string">bootcmd</span> <span class="string">"bootm a0000000#ls1046afrwy"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">boot</span></span><br><span class="line"><span class="attr">kernel_commands:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">uname</span> <span class="string">-a</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">cat</span> <span class="string">/proc/cmdline</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ping</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.2</span> <span class="string">-c</span> <span class="number">3</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"nameserver 192.168.1.1"</span> <span class="string">&gt;</span> <span class="string">/etc/resolv.conf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">flex-installer</span> <span class="string">-v</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">flex-installer</span> <span class="string">-i</span> <span class="string">pf</span> <span class="string">-F</span> <span class="string">-d</span> <span class="string">/dev/mmcblk0</span> <span class="string">@@timeout==900@@check_ret==true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">url:</span> <span class="string">"telnet://192.168.1.3:9999"</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/runner.py/" data-id="ckaqhwj1i000841hicrd7alq5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/hello-world/" class="article-date">
+  <time datetime="2020-05-28T08:07:58.235Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/hello-world/" data-id="ckaqhwj0t000241hi0gcq1gyo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/28/centos/">centos</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/github-reinitialize/">github-reinitialize</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/mongodb/">mongodb</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/ser2net/">ser2net</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/shell/">shell</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

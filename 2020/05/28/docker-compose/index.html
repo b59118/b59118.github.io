@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>docker-compose | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是Docker-Compose  Compose项目来源于之前的fig项目，使用python语言编写,与docker&#x2F;swarm配合度很高。 Compose 是 Docker 容器进行编排的工具，定义和运行多容器的应用，可以一条命令启动多个容器，使用Docker Compose不再需要使用shell脚本来启动容器。  Compose 通过一个配置文件来管理多个Docker容器，在配置文件中，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker-compose">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/docker-compose/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="什么是Docker-Compose  Compose项目来源于之前的fig项目，使用python语言编写,与docker&#x2F;swarm配合度很高。 Compose 是 Docker 容器进行编排的工具，定义和运行多容器的应用，可以一条命令启动多个容器，使用Docker Compose不再需要使用shell脚本来启动容器。  Compose 通过一个配置文件来管理多个Docker容器，在配置文件中，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-28T08:08:15.939Z">
+<meta property="article:modified_time" content="2020-05-28T08:08:15.939Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-docker-compose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/28/docker-compose/" class="article-date">
+  <time datetime="2020-05-28T08:08:15.939Z" itemprop="datePublished">2020-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      docker-compose
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>什么是Docker-Compose</li>
+</ol>
+<p>Compose项目来源于之前的fig项目，使用python语言编写,与docker/swarm配合度很高。</p>
+<p>Compose 是 Docker 容器进行编排的工具，定义和运行多容器的应用，可以一条命令启动多个容器，使用Docker Compose不再需要使用shell脚本来启动容器。 </p>
+<p>Compose 通过一个配置文件来管理多个Docker容器，在配置文件中，所有的容器通过services来定义，然后使用docker-compose脚本来启动，停止和重启应用，和应用中的服务以及所有依赖服务的容器，非常适合组合使用多个容器进行开发的场景。</p>
+<p>docker-compose默认的模板文件是 docker-compose.yml，其中定义的每个服务都必须通过 image 指令指定镜像或 build 指令（需要 Dockerfile）来自动构建。</p>
+<p>其它大部分指令都跟 docker run 中的类似。</p>
+<p>如果使用 build 指令，在 Dockerfile 中设置的选项(例如：CMD, EXPOSE, VOLUME, ENV 等) 将会自动被获取，无需在 docker-compose.yml 中再次设置。<br>使用Compose 基本上分为三步：</p>
+<p>1.Dockerfile 定义应用的运行环境<br>2.docker-compose.yml 定义组成应用的各服务<br>3.docker-compose up 启动整个应用</p>
+<p>2.安装Compose</p>
+<p>两种docker-compose安装方式</p>
+<p>1.从github上下载docker-compose二进制文件安装</p>
+<p>下载最新版的docker-compose文件 </p>
+<p>$ sudo curl -L <a href="https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname" target="_blank" rel="noopener">https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname</a> -s<code>-</code>uname -m` -o /usr/local/bin/docker-compose<br>添加可执行权限<br>$ sudo chmod +x /usr/local/bin/docker-compose<br>测试安装结果 </p>
+<p>$ docker-compose –version<br>docker-compose version 1.16.1, build 1719ceb<br>2.pip安装</p>
+<p>2.1、安装python-pip</p>
+<p>yum -y install epel-release<br>yum -y install python-pip<br>2.2、安装docker-compose<br>pip install docker-compose<br>待安装完成后，执行查询版本的命令，即可安装docker-compose</p>
+<p>[root@swarm01 fendo]# docker-compose version<br>docker-compose version 1.21.2, build a133471<br>docker-py version: 3.3.0<br>CPython version: 2.7.5<br>OpenSSL version: OpenSSL 1.0.2k-fips  26 Jan 2017<br>3.docker-compose.yml 配置文件详解</p>
+<p>docker-compose文件结构,官方提供了一个 yaml Docker Compose 配置文件的标准例子</p>
+<p>version: “3”<br>services:</p>
+<p>  redis:<br>    image: redis:alpine<br>    ports:<br>      - “6379”<br>    networks:<br>      - frontend<br>    deploy:<br>      replicas: 2<br>      update_config:<br>        parallelism: 2<br>        delay: 10s<br>      restart_policy:<br>        condition: on-failure</p>
+<p>  db:<br>    image: postgres:9.4<br>    volumes:<br>      - db-data:/var/lib/postgresql/data<br>    networks:<br>      - backend<br>    deploy:<br>      placement:<br>        constraints: [node.role == manager]</p>
+<p>  vote:<br>    image: dockersamples/examplevotingapp_vote:before<br>    ports:<br>      - 5000:80<br>    networks:<br>      - frontend<br>    depends_on:<br>      - redis<br>    deploy:<br>      replicas: 2<br>      update_config:<br>        parallelism: 2<br>      restart_policy:<br>        condition: on-failure</p>
+<p>  result:<br>    image: dockersamples/examplevotingapp_result:before<br>    ports:<br>      - 5001:80<br>    networks:<br>      - backend<br>    depends_on:<br>      - db<br>    deploy:<br>      replicas: 1<br>      update_config:<br>        parallelism: 2<br>        delay: 10s<br>      restart_policy:<br>        condition: on-failure</p>
+<p>  worker:<br>    image: dockersamples/examplevotingapp_worker<br>    networks:<br>      - frontend<br>      - backend<br>    deploy:<br>      mode: replicated<br>      replicas: 1<br>      labels: [APP=VOTING]<br>      restart_policy:<br>        condition: on-failure<br>        delay: 10s<br>        max_attempts: 3<br>        window: 120s<br>      placement:<br>        constraints: [node.role == manager]</p>
+<p>  visualizer:<br>    image: dockersamples/visualizer:stable<br>    ports:<br>      - “8080:8080”<br>    stop_grace_period: 1m30s<br>    volumes:<br>      - “/var/run/docker.sock:/var/run/docker.sock”<br>    deploy:<br>      placement:<br>        constraints: [node.role == manager]</p>
+<p>networks:<br>  frontend:<br>  backend:</p>
+<p>volumes:<br>  db-data:<br>一份标准配置文件应该包含 version、services、networks 三大部分，其中最关键的就是 services 和 networks 两个部分</p>
+<p>3.1、文件配置</p>
+<p>compose 文件是一个定义服务、 网络和卷的 YAML 文件 。Compose 文件的默认路径是 ./docker-compose.yml</p>
+<p>服务定义包含应用于为该服务启动的每个容器的配置，就像传递命令行参数一样 docker container create。同样，网络和卷的定义类似于 docker network create 和 docker volume create。</p>
+<p>正如 docker container create 在 Dockerfile 指定选项，如 CMD、 EXPOSE、VOLUME、ENV，在默认情况下，你不需要再次指定它们docker-compose.yml。</p>
+<p>可以使用 Bash 类 ${VARIABLE} 语法在配置值中使用环境变量。</p>
+<p>提示: 可以是用 .yml 或 .yaml 作为文件扩展名</p>
+<p>3.2、版本</p>
+<p>Compose目前为止有三个版本分别为Version 1,Version 2,Version 3,Compose区分Version 1和Version 2（Compose 1.6.0+，Docker Engine 1.10.0+）。Version 2支持更多的指令。Version 1没有声明版本默认是”version 1”。Version 1将来会被弃用。</p>
+<p>3.3、配置选项</p>
+<p>１.bulid</p>
+<p>服务除了可以基于指定的镜像，还可以基于一份 Dockerfile，在使用 up 启动之时执行构建任务，这个构建标签就是 build，它可以指定 Dockerfile 所在文件夹的路径。Compose 将会利用它自动构建这个镜像，然后使用这个镜像启动服务容器<br>build: /path/to/build/dir<br>也可以是相对路径</p>
+<p>build: ./dir<br>设定上下文根目录，然后以该目录为准指定 Dockerfile</p>
+<p>build:<br>  context: ../<br>  dockerfile: path/of/Dockerfile</p>
+<ol start="2">
+<li>context</li>
+</ol>
+<p>context 选项可以是 Dockerfile 的文件路径，也可以是到链接到 git 仓库的url，当提供的值是相对路径时，它被解析为相对于撰写文件的路径，此目录也是发送到 Docker 守护进程的 context</p>
+<p>build:<br>  context: ./dir<br>３. dockerfile</p>
+<p>使用此 dockerfile 文件来构建，必须指定构建路径<br>build:<br>  context: .<br>  dockerfile: Dockerfile-alternate<br>4.image</p>
+<p>services:<br>  web:<br>    image: nginx<br>在 services 标签下的第二级标签是 web，这个名字是用户自己自定义，它就是服务名称。<br>image 则是指定服务的镜像名称或镜像 ID。如果镜像在本地不存在，Compose 将会尝试拉取这个镜像。<br>例如下面这些格式都是可以的：<br>image: redis<br>image: ubuntu:14.04<br>image: tutum/influxdb<br>image: a4bc65fd</p>
+<ol start="5">
+<li>args</li>
+</ol>
+<p>添加构建参数，这些参数是仅在构建过程中可访问的环境变量<br>首先， 在Dockerfile中指定参数：<br>ARG fendo<br>ARG password</p>
+<p>RUN echo “Build number: $fendo”<br>RUN script-requiring-password.sh “$password”<br>然后指定 build 下的参数,可以传递映射或列表</p>
+<p>build:<br>  context: .<br>  args:<br>    fendo: 1<br>    password: fendo<br>或</p>
+<p>build:<br>  context: .<br>  args:<br>    - fendo=1<br>    - password=fendo<br>指定构建参数时可以省略该值，在这种情况下，构建时的值默认构成运行环境中的值</p>
+<p>args:</p>
+<ul>
+<li>fendo</li>
+<li>password<br>6.command</li>
+</ul>
+<p>使用 command 可以覆盖容器启动后默认执行的命令。</p>
+<p>command: bundle exec thin -p 3000<br>该命令也可以是一个列表，方法类似于 dockerfile:</p>
+<p>command: [“bundle”, “exec”, “thin”, “-p”, “3000”]<br>7.container_name</p>
+<p>Compose 的容器名称格式是：&lt;项目名称&gt;&lt;服务名称&gt;&lt;序号&gt;</p>
+<p>虽然可以自定义项目名称、服务名称，但是如果你想完全控制容器的命名，可以使用这个标签指定：</p>
+<p>container_name: app<br>这样容器的名字就指定为 app 了。</p>
+<p>8.depends_on</p>
+<p>在使用 Compose 时，最大的好处就是少打启动命令，但是一般项目容器启动的顺序是有要求的，如果直接从上到下启动容器，必然会因为容器依赖问题而启动失败。</p>
+<p>例如在没启动数据库容器的时候启动了应用容器，这时候应用容器会因为找不到数据库而退出，为了避免这种情况我们需要加入一个标签，就是 depends_on，这个标签解决了容器的依赖、启动先后的问题。</p>
+<p>例如下面容器会先启动 redis 和 db 两个服务，最后才启动 web 服务：</p>
+<p>version: ‘3’<br>services:<br>  web:<br>    build: .<br>    depends_on:<br>      - db<br>      - redis<br>  redis:<br>    image: redis<br>  db:<br>    image: postgres<br>注意的是，默认情况下使用 docker-compose up web 这样的方式启动 web 服务时，也会启动 redis 和 db 两个服务，因为在配置文件中定义了依赖关系。</p>
+<p>9.pid</p>
+<p>pid: “host”<br>将PID模式设置为主机PID模式，跟主机系统共享进程命名空间。容器使用这个标签将能够访问和操纵其他容器和宿主机的名称空间。</p>
+<p>10.ports</p>
+<p>映射端口的标签。</p>
+<p>使用HOST:CONTAINER格式或者只是指定容器的端口，宿主机会随机映射端口。</p>
+<p>ports:</p>
+<ul>
+<li>“3000”</li>
+<li>“8000:8000”</li>
+<li>“49100:22”</li>
+<li>“127.0.0.1:8001:8001”<br>注意：当使用HOST:CONTAINER格式来映射端口时，如果你使用的容器端口小于60你可能会得到错误得结果，因为YAML将会解析xx:yy这种数字格式为60进制。所以建议采用字符串格式。<br>11.extra_hosts</li>
+</ul>
+<p>添加主机名的标签，就是往/etc/hosts文件中添加一些记录，与Docker client的–add-host类似：</p>
+<p>extra_hosts:</p>
+<ul>
+<li>“somehost:162.242.195.82”</li>
+<li>“otherhost:50.31.209.229”<br>启动之后查看容器内部hosts：</li>
+</ul>
+<p>162.242.195.82  somehost<br>50.31.209.229   otherhost</p>
+<p>12.volumes</p>
+<p>挂载一个目录或者一个已存在的数据卷容器，可以直接使用 [HOST:CONTAINER] 这样的格式，或者使用 [HOST:CONTAINER:ro] 这样的格式，后者对于容器来说，数据卷是只读的，这样可以有效保护宿主机的文件系统。<br>Compose的数据卷指定路径可以是相对路径，使用 . 或者 .. 来指定相对目录。</p>
+<p>数据卷的格式可以是下面多种形式：</p>
+<p>volumes:<br>  // 只是指定一个路径，Docker 会自动在创建一个数据卷（这个路径是容器内部的）。</p>
+<ul>
+<li><p>/var/lib/mysql</p>
+<p>// 使用绝对路径挂载数据卷</p>
+</li>
+<li><p>/opt/data:/var/lib/mysql</p>
+<p>// 以 Compose 配置文件为中心的相对路径作为数据卷挂载到容器。</p>
+</li>
+<li><p>./cache:/tmp/cache</p>
+<p>// 使用用户的相对路径（~/ 表示的目录是 /home/&lt;用户目录&gt;/ 或者 /root/）。</p>
+</li>
+<li><p>~/configs:/etc/configs/:ro</p>
+<p>// 已经存在的命名的数据卷。</p>
+</li>
+<li><p>datavolume:/var/lib/mysql<br>如果你不使用宿主机的路径，你可以指定一个volume_driver。</p>
+</li>
+</ul>
+<p>volume_driver: mydriver<br>原文：<a href="https://blog.csdn.net/u011781521/article/details/80464826" target="_blank" rel="noopener">https://blog.csdn.net/u011781521/article/details/80464826</a> </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/28/docker-compose/" data-id="ckaqhwj1a000741hihh9xa4la" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/28/%E6%94%B6%E8%97%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          收藏
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/28/runner.py/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">runner.py</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/28/centos/">centos</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/github-reinitialize/">github-reinitialize</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/mongodb/">mongodb</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/ser2net/">ser2net</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/28/shell/">shell</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
